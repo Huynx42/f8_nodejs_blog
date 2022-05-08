@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 //sử dụng morgan: tạo/in thông báo request- từ client
 const morgan = require('morgan');
-app.use(morgan('combined'));
+// app.use(morgan('combined'));
 //Sử dụng template ejs
 app.set("view engine","ejs");
 app.set("views","./src/resources/views");
@@ -20,7 +20,13 @@ app.get('/',(req,res) => {
 })
 
 app.get('/news',(req,res) => {
+    //check value q trong req
+    console.log(req.query.q); 
     res.render('news', {title: "post soccer"});
+})
+
+app.get('/search',(req,res) => {
+    res.render('search', {title: "search page"});
 })
 
 app.listen(port, () => {
