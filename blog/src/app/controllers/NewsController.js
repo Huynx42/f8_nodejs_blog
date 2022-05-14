@@ -4,13 +4,13 @@
 //khai báo class thì viết theo CamelCase
 class NewsController {
     //[GET] /news
-    index(req,res) {
-        res.render('news',{title: "post soccer"});
+    index(req, res) {
+        res.render('news', { title: 'post soccer' });
     }
     // [GET] /news/:slug
-    show(req,res) {
-        res.send("NEWS DETAIL!");
+    show(req, res) {
+        res.send('NEWS DETAIL!');
     }
 }
 
-module.exports = new NewsController;
+module.exports = new NewsController();

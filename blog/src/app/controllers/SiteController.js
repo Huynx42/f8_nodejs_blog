@@ -4,13 +4,13 @@
 //khai báo class thì viết theo CamelCase
 class SiteController {
     //[GET] /
-    index(req,res) {
-        res.render('home', {title: "Nguyen Xuan Huy"});
+    index(req, res) {
+        res.render('home', { title: 'Nguyen Xuan Huy' });
     }
     // [GET] /search
-    search(req,res) {
-        res.render('search', {title: "search page"});
+    search(req, res) {
+        res.render('search', { title: 'search page' });
     }
 }
 
-module.exports = new SiteController;
+module.exports = new SiteController();

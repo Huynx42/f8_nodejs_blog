@@ -7,7 +7,7 @@ const router = express.Router();
 // function handler ở file NewsController tức (req,res) => {res.send}
 
 //Khởi tạo biến không cần viết hoa chữ cái đầu
-const siteController = require("../app/controllers/SiteController");
+const siteController = require('../app/controllers/SiteController');
 router.use('/search', siteController.search);
 router.use('/', siteController.index);
 

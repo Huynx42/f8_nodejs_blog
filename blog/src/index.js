@@ -5,9 +5,9 @@ const port = 3000;
 const morgan = require('morgan');
 // app.use(morgan('combined'));
 //Sử dụng template ejs
-app.set("view engine","ejs");
-app.set("views","./src/resources/views");
-app.use(express.static(__dirname + "/src/resources/views"));
+app.set('view engine', 'ejs');
+app.set('views', './src/resources/views');
+app.use(express.static(__dirname + '/src/resources/views'));
 //Cấu hình file tĩnh
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -19,11 +19,9 @@ const route = require('./routes');
 
 //trang Home, search, contact đưa vào cùng 1 file, vì ít site
 
-
 // cấu hình router
-route(app);
+route   (app);
 
-
-app.listen(port, () => {
+                app.listen(port, () => {
     console.log(`server running at http://localhost:${port}`);
-})
+});

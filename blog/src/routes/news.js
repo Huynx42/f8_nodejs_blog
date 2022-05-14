@@ -7,9 +7,9 @@ const router = express.Router();
 // function handler ở file NewsController tức (req,res) => {res.send}
 
 //Khởi tạo biến không cần viết hoa chữ cái đầu
-const newsController = require("../app/controllers/NewsController");
+const newsController = require('../app/controllers/NewsController');
 router.use('/:slug', newsController.show);
 router.use('/', newsController.index);
-    //đưa path "/" về dưới cùng vì xử lí đồng bộ
+//đưa path "/" về dưới cùng vì xử lí đồng bộ
 
 module.exports = router;
