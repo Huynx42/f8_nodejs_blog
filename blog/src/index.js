@@ -14,20 +14,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 // kiểm tra đường dẫn __dirname
 // console.log(__dirname); trả lại .../src
 
-// router
-app.get('/',(req,res) => {
-    res.render('home', {title: "Nguyen Xuan Huy"});
-})
+//Chia routes, chỉ cần trỏ về thư mục, ko cần trỏ file, mặc định trỏ về file tên file index
+const route = require('./routes');
 
-app.get('/news',(req,res) => {
-    //check value q trong req
-    console.log(req.query.q); 
-    res.render('news', {title: "post soccer"});
-})
+//trang Home, search, contact đưa vào cùng 1 file, vì ít site
 
-app.get('/search',(req,res) => {
-    res.render('search', {title: "search page"});
-})
+
+// cấu hình router
+route(app);
+
 
 app.listen(port, () => {
     console.log(`server running at http://localhost:${port}`);
