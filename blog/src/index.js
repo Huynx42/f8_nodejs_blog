@@ -20,8 +20,8 @@ const route = require('./routes');
 //trang Home, search, contact đưa vào cùng 1 file, vì ít site
 
 // cấu hình router
-route   (app);
+route(app);
 
-                app.listen(port, () => {
+            app.listen(port, () => {
     console.log(`server running at http://localhost:${port}`);
 });
