@@ -22,6 +22,6 @@ const route = require('./routes');
 // cấu hình router
 route(app);
 
-            app.listen(port, () => {
+app.listen(port, () => {
     console.log(`server running at http://localhost:${port}`);
 });
