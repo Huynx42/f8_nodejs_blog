@@ -8,8 +8,8 @@ const router = express.Router();
 
 //Khởi tạo biến không cần viết hoa chữ cái đầu
 const newsController = require('../app/controllers/NewsController');
-router.use('/:slug', newsController.show);
-router.use('/', newsController.index);
+router.get('/:slug', newsController.show);
+router.get('/', newsController.index);
 //đưa path "/" về dưới cùng vì xử lí đồng bộ
 
 module.exports = router;

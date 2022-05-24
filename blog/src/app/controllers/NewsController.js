@@ -1,5 +1,6 @@
 // Path ở file news.js tức app.get('/news'
 // function handler ở file NewsController (req,res) => {res.send}
+const Course = require('../models/Course');
 
 //khai báo class thì viết theo CamelCase
 class NewsController {

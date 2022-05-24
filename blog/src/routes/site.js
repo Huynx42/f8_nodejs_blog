@@ -8,7 +8,8 @@ const router = express.Router();
 
 //Khởi tạo biến không cần viết hoa chữ cái đầu
 const siteController = require('../app/controllers/SiteController');
-router.use('/search', siteController.search);
-router.use('/', siteController.index);
+router.get('/search', siteController.search);
+router.get('/', siteController.index);
+//trang Home, search, contact đưa vào cùng 1 file, vì ít site
 
 module.exports = router;

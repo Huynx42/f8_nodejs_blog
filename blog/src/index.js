@@ -7,9 +7,10 @@ const morgan = require('morgan');
 //Sử dụng template ejs
 app.set('view engine', 'ejs');
 app.set('views', './src/resources/views');
-app.use(express.static(__dirname + '/src/resources/views'));
 //Cấu hình file tĩnh
 const path = require('path');
+app.use(express.static(path.join(__dirname, 'src', 'resources', 'views')));
+app.use(express.static(path.join(__dirname, 'src', 'resources', 'templates')));
 app.use(express.static(path.join(__dirname, 'public')));
 // kiểm tra đường dẫn __dirname
 // console.log(__dirname); trả lại .../src
@@ -17,7 +18,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Chia routes, chỉ cần trỏ về thư mục, ko cần trỏ file, mặc định trỏ về file tên file index
 const route = require('./routes');
 
-//trang Home, search, contact đưa vào cùng 1 file, vì ít site
+//Import mongodb vào
+const db = require('./config/db');
+
+//Connect to db
+db.connect();
 
 // cấu hình router
 route(app);
