@@ -4,6 +4,8 @@ const port = 3000;
 //sử dụng morgan: tạo/in thông báo request- từ client
 const morgan = require('morgan');
 // app.use(morgan('combined'));
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
 //Sử dụng template ejs
 app.set('view engine', 'ejs');
 app.set('views', './src/resources/views');
@@ -24,6 +26,9 @@ const db = require('./config/db');
 //Connect to db
 db.connect();
 
+//Sử dụng PUT trong file HTML/EJS
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 // cấu hình router
 route(app);
 
