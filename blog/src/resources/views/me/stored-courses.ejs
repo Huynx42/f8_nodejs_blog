@@ -31,7 +31,7 @@
             <td><%= course.createdAt %></td>
             <td>
               <a href="/khoa-hoc/<%= course._id %>/edit" class="btn btn-link">Sửa</a>
-              <a href="" class="btn btn-primary" data-bs-toggle="modal" data-id="<%= course._id %>" data-bs-target="#delete_course_modal">Xóa</a>
+              <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-id="<%= course._id %>" data-bs-target="#delete_course_modal">Xóa</a>
             </td>
           </tr>
 
@@ -53,7 +53,7 @@
             Bạn chắc chắn muốn xóa khóa học này ?
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger">Xóa bỏ</button>
+            <button id="btn-delete-course-modal" type="button" class="btn btn-danger">Xóa bỏ</button>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
           </div>
         </div>
@@ -62,7 +62,25 @@
 
     <!-- Đặt ngay trên body để load nhanh hơn -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+      var delete_course_modal = document.getElementById('delete_course_modal')
+      delete_course_modal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var id = button.getAttribute('data-bs-id')
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        console.log(id);
+        var modalTitle = delete_course_modal.querySelector('.modal-title')
+
+        modalTitle.textContent = 'Xóa khóa học ' + id
+      })
+      var btnDeleteCourseModal = document.getElementById('btn-delete-course-modal');
+      console.log(btnDeleteCourseModal);
+    </script>
     
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
